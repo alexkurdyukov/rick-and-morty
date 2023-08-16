@@ -6,6 +6,7 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import { Person } from "../../types";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import {
+    changeSelectedPerson,
     fetchEpisodeInfo,
     fetchLastLocationInfo,
 } from "../../store/reducers/CurrentPersonReducer";
@@ -47,6 +48,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
         dispatch(fetchLastLocationInfo(locationUrl));
     }, [currentPerson, persons]);
 
+    const closeSidebar = () => {
+        dispatch(changeSelectedPerson(""));
+    };
     return (
         <aside className={cn(styles.sidebar, className)}>
             <div className={styles.sidebar__wrapper}>
@@ -78,7 +82,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     />
                 </div>
 
-                <div className={styles.sidebar__icon}>
+                <div className={styles.sidebar__icon} onClick={closeSidebar}>
                     <FontAwesomeIcon
                         icon={faXmark}
                         className={styles.sidebar__button}

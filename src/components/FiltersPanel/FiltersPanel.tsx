@@ -25,6 +25,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { PATH_DASHBOARD } from "../../router/RouterConfig";
 import { formPersonsUrl } from "../../helpers/formUrl";
+import { useEffect } from "react";
 
 interface FiltersPanelProps {
     className?: string;
@@ -66,6 +67,7 @@ const NameInput = () => {
         dispatch(changeName(value));
     };
     const name = useAppSelector((state) => state.personsReducer.name);
+    useEffect(() => console.log(name), [name]);
     return (
         <Input
             className={styles.first}

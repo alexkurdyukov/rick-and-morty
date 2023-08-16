@@ -61,8 +61,6 @@ export const fetchPersons = createAsyncThunk(
                 throw new Error("Server Error");
             }
             const data = await response.json();
-            console.log(data);
-
             return data;
         } catch (error) {
             return rejectWithValue(error);
