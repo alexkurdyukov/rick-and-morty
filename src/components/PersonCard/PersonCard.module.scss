@@ -1,0 +1,32 @@
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: var(--white);
+    border-radius: 17px;
+    box-shadow: 1px 1px 11px 0px rgba(0, 0, 0, 0.14);
+    overflow: hidden;
+    cursor: pointer;
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+        padding: 20px 40px;
+    }
+}
+
+.element {
+    &__title {
+        font-size: 25px;
+        color: var(--secondary-color);
+        font-weight: 500;
+    }
+    &__value {
+        font-size: 23px;
+        color: var(--black);
+        font-weight: 400;
+    }
+}

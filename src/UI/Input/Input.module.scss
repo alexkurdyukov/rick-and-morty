@@ -1,0 +1,27 @@
+.Input {
+    display: flex;
+    align-items: center;
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+    border: 1px solid #c6c6c6;
+    color: black;
+    width: 100%;
+    height: 43px;
+    position: relative;
+    z-index: 0;
+    background-color: var(--white);
+    cursor: pointer;
+    border-radius: 17px;
+    &__container {
+        width: 100%;
+        padding: 0 20px 0 20px;
+    }
+    &__icon {
+        position: absolute;
+        left: 15px;
+    }
+}
+
+input::placeholder {
+    color: black;
+    opacity: 1;
+}

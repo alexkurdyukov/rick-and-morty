@@ -1,0 +1,18 @@
+.main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url("https://wallpapers.com/images/hd/rick-and-morty-unamused-rick-agpuysmhk3lhdl4p.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__wrapper {
+        max-width: 1400px;
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

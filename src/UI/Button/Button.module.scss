@@ -1,0 +1,17 @@
+.Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+   
+    padding: 10px 20px;
+    background-color: #a084e8;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--secondary-color);
+    }
+    &__text {
+        color: var(--white);
+    }
+}
