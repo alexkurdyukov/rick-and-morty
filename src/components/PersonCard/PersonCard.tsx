@@ -1,5 +1,4 @@
 import styles from "./PersonCard.module.scss";
-import cn from "classnames";
 
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { changeSelectedPerson } from "../../store/reducers/CurrentPersonReducer";
@@ -40,7 +39,6 @@ export const PersonCard = ({ person }: PersonCardProps) => {
     const changeSidebarPerson = (name: string) => {
         dispatch(changeSelectedPerson(name));
     };
-
     return (
         <div
             className={styles.card}

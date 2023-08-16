@@ -15,7 +15,6 @@ export const CardsList = ({ className }: CardsListProps) => {
     const { persons, isLoading } = useAppSelector(
         (state) => state.personsReducer
     );
-
     return (
         <div className={cn(styles.list, className)}>
             {persons.length > 0 ? (

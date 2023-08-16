@@ -1,3 +1,4 @@
+// формирует url исходя из query запроса
 export const formPersonsUrl = (
     species: string,
     status: string,

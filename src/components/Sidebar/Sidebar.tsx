@@ -3,8 +3,9 @@ import cn from "classnames";
 
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { Person } from "../../types";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
+
+import { Person } from "../../types";
 import {
     changeSelectedPerson,
     fetchEpisodeInfo,

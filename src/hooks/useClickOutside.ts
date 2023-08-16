@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
-// по клику вне html элемента на котором висит реф, срабатывает колбэк
-// в проекте использовался для отслеживания клика вокруг всплывающих окон, чтобы их закрывать
+// тригерит колбэк, если происходит клик вне области HTML-элемента, на котором висит ref
 export const useClickOutside = (
     ref: React.RefObject<HTMLDivElement>,
     callback: () => void

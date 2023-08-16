@@ -14,8 +14,12 @@ import {
 } from "../../store/reducers/PersonsReducer";
 import { formPersonsUrl } from "../../helpers/formUrl";
 import { useInView } from "react-intersection-observer";
+import { Button } from "../../UI/Button/Button";
+import { useNavigate } from "react-router-dom";
+import { PATH_DASHBOARD } from "../../router/RouterConfig";
 
 export const Cards = () => {
+    const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState<number>(1);
     const { species, status, name, gender, totalPages } = useAppSelector(
         (state) => state.personsReducer
@@ -63,6 +67,7 @@ export const Cards = () => {
                 />
                 <div ref={ref}></div>
             </div>
+
             {currentPerson && <Sidebar className={styles.sidebar} />}
         </div>
     );

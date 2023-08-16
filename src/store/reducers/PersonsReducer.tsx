@@ -3,8 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { Person } from "../../types";
 
 const initialState: PersonsState = {
-    // динамическая подгрузка данных
-    currentPage: 1,
+    // ограничение для загрузки
     totalPages: 1,
 
     //фильтры
@@ -20,7 +19,6 @@ const initialState: PersonsState = {
 };
 
 interface PersonsState {
-    currentPage: number;
     totalPages: number;
 
     name: string;
@@ -33,7 +31,7 @@ interface PersonsState {
     error: any;
 }
 
-// санка на подгрузку данных с API исходя
+//подгрузка массива персонажей при первом рендере
 export const fetchFirstData = createAsyncThunk(
     "persons/fetchFirstData",
     async function (url: string, { rejectWithValue }) {
@@ -50,7 +48,7 @@ export const fetchFirstData = createAsyncThunk(
     }
 );
 
-// санка на подгрузку данных с API исходя
+//подгрузка массива персонажей при скроле
 export const fetchPersons = createAsyncThunk(
     "persons/fetchPersons",
     async function (url: string, { rejectWithValue }) {
@@ -72,10 +70,6 @@ export const personsSlice = createSlice({
     name: "persons",
     initialState,
     reducers: {
-        incrementCurrentPage(state) {
-            state.currentPage = state.currentPage + 1;
-        },
-
         changeName(state, action: PayloadAction<string>) {
             state.name = action.payload;
         },
@@ -96,7 +90,6 @@ export const personsSlice = createSlice({
             state.species = "";
         },
         resetData(state) {
-            state.currentPage = 1;
             state.totalPages = 1;
             state.persons = [];
         },
@@ -124,6 +117,7 @@ export const personsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         });
+
         builder.addCase(fetchFirstData.pending, (state) => {
             state.isLoading = true;
         });
@@ -152,7 +146,6 @@ export const personsSlice = createSlice({
 export default personsSlice.reducer;
 export const {
     resetData,
-    incrementCurrentPage,
     changeName,
     changeGender,
     changeStatus,

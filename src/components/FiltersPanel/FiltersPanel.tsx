@@ -1,18 +1,21 @@
 import styles from "./FiltersPanel.module.scss";
 import cn from "classnames";
+
+import { useAppDispatch } from "../../hooks/useAppDispatch";
+import { useAppSelector } from "../../hooks/useAppSelector";
+
 import {
     STATUS_OPTIONS,
     GENDER_OPTIONS,
     SPECIES_OPTIONS,
 } from "../../Constants";
-
 import { Button } from "../../UI/Button/Button";
 import { Dropdown } from "../../UI/Dropdown/Dropdown";
 import { Input } from "../../UI/Input/Input";
 import { findLabel } from "../../helpers/findLabel";
-
-import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { useAppSelector } from "../../hooks/useAppSelector";
+import { useLocation, useNavigate } from "react-router-dom";
+import { PATH_DASHBOARD } from "../../router/RouterConfig";
+import { formPersonsUrl } from "../../helpers/formUrl";
 import {
     changeGender,
     changeName,
@@ -22,10 +25,6 @@ import {
     resetData,
     resetFilters,
 } from "../../store/reducers/PersonsReducer";
-import { useNavigate } from "react-router-dom";
-import { PATH_DASHBOARD } from "../../router/RouterConfig";
-import { formPersonsUrl } from "../../helpers/formUrl";
-import { useEffect } from "react";
 
 interface FiltersPanelProps {
     className?: string;
@@ -34,11 +33,13 @@ interface FiltersPanelProps {
 export const FiltersPanel = ({ className }: FiltersPanelProps) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const { name, status, species, gender, currentPage } = useAppSelector(
+
+    const { name, status, species, gender } = useAppSelector(
         (state) => state.personsReducer
     );
+    
     const filterPersons = () => {
-        const url = formPersonsUrl(species, status, name, gender, currentPage);
+        const url = formPersonsUrl(species, status, name, gender);
         dispatch(resetData());
         dispatch(fetchPersons(url));
         navigate(PATH_DASHBOARD.cards);
@@ -49,6 +50,14 @@ export const FiltersPanel = ({ className }: FiltersPanelProps) => {
         dispatch(resetData());
         dispatch(fetchPersons(url));
     };
+    const navigateToRoot = () => {
+        navigate(PATH_DASHBOARD.root);
+        reset();
+    };
+
+    const location = useLocation().pathname;
+    const isRootPage = location === PATH_DASHBOARD.root;
+
     return (
         <div className={cn(styles.panel, className)}>
             <NameInput />
@@ -57,6 +66,9 @@ export const FiltersPanel = ({ className }: FiltersPanelProps) => {
             <GenderFilter />
             <Button onClick={filterPersons} text={"Поиск"} />
             <Button onClick={reset} text={"Очистить фильтры"} />
+            {!isRootPage && (
+                <Button onClick={navigateToRoot} text={"На главную"}></Button>
+            )}
         </div>
     );
 };
@@ -67,7 +79,6 @@ const NameInput = () => {
         dispatch(changeName(value));
     };
     const name = useAppSelector((state) => state.personsReducer.name);
-    useEffect(() => console.log(name), [name]);
     return (
         <Input
             className={styles.first}

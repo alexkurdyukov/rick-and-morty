@@ -12,7 +12,7 @@ export const RouterConfig = [
         element: <Main />,
     },
     {
-        path: String(PATH_DASHBOARD.cards),
+        path: PATH_DASHBOARD.cards,
         element: <Cards />,
     },
 ];

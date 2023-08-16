@@ -2,10 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: PersonsState = {
+    currentPerson: "",
+
     locationUrl: "",
     dimension: "",
 
-    currentPerson: "",
     epidoseNumber: "",
     eposodeName: "",
     episodeDate: "",
@@ -15,10 +16,11 @@ const initialState: PersonsState = {
 };
 
 interface PersonsState {
+    currentPerson: string; //имя персонажа в сайдбаре
+
     locationUrl: string; //юрл последней локации
     dimension: string; // измерение последней локации, где был персонаж
 
-    currentPerson: string; //имя персонажа в сайдбаре
     epidoseNumber: string; //эпизодная информация о персонаже
     eposodeName: string;
     episodeDate: string;
@@ -27,9 +29,7 @@ interface PersonsState {
     error: any;
 }
 
-
-
-// подгружаем с API информацию по локации
+// подгружаем с API информацию по локации, на которой последний раз видели персонажа
 export const fetchLastLocationInfo = createAsyncThunk(
     "persons/fetchLastLocationInfo",
     async function (url: string, { rejectWithValue }) {
@@ -56,7 +56,6 @@ export const fetchEpisodeInfo = createAsyncThunk(
                 throw new Error("Server Error");
             }
             const data = await response.json();
-
             return data;
         } catch (error) {
             return rejectWithValue(error);
