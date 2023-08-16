@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import styles from "./Cards.module.scss";
 
 import { useAppSelector } from "../../hooks/useAppSelector";
