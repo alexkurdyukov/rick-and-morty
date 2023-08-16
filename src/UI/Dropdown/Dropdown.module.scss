@@ -4,13 +4,12 @@
 }
 
 .dropdown {
-    width: 300px;
     position: relative;
     z-index: 2;
     cursor: pointer;
     &__icon {
         position: absolute;
-        z-index: 2;
+       
         right: 15px;
         top: 25%;
         transition: all linear 0.1s;
@@ -38,7 +37,6 @@
         position: absolute;
         top: 110%;
         left: 0;
-
         background: #fff;
         box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
         color: #333;

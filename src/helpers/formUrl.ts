@@ -10,5 +10,5 @@ export const formPersonsUrl = (
     const statusPart = status ? `&status=${status}` : "";
     const namePart = name ? `&name=${name}` : "";
     const genderPart = gender ? `&gender=${gender}` : "";
-    return `${url}page=${page}${speciesPart}${statusPart}${namePart}${namePart}${genderPart}`;
+    return `${url}page=${page}${speciesPart}${statusPart}${namePart}${genderPart}`;
 };

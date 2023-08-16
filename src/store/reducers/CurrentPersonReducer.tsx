@@ -27,7 +27,9 @@ interface PersonsState {
     error: any;
 }
 
-// берем информацию по локации
+
+
+// подгружаем с API информацию по локации
 export const fetchLastLocationInfo = createAsyncThunk(
     "persons/fetchLastLocationInfo",
     async function (url: string, { rejectWithValue }) {
@@ -44,8 +46,7 @@ export const fetchLastLocationInfo = createAsyncThunk(
     }
 );
 
-// подгрузка информации о эпизоде, где участвовал персонаж
-// на вход url последнего эпизода
+// подгрузка с API информации о эпизоде, где участвовал персонаж
 export const fetchEpisodeInfo = createAsyncThunk(
     "persons/fetchEpisodeInfo",
     async function (url: string, { rejectWithValue }) {

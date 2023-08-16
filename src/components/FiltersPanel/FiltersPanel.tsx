@@ -68,7 +68,7 @@ const NameInput = () => {
     const name = useAppSelector((state) => state.personsReducer.name);
     return (
         <Input
-            className={styles.nameinput}
+            className={styles.first}
             onChange={changeCurrentValue}
             placeholder={"Поиск по имени"}
             value={name}
@@ -84,6 +84,7 @@ const StatusFilter = () => {
     };
     return (
         <Dropdown
+            className={styles.second}
             changeOption={changeCurrentStatus}
             placeholder="Выберите статус"
             options={STATUS_OPTIONS}
@@ -102,6 +103,7 @@ const SpeciesFilter = () => {
     };
     return (
         <Dropdown
+            className={styles.third}
             changeOption={changeCurrentSpecies}
             option={findLabel(speciesValue, SPECIES_OPTIONS)}
             options={SPECIES_OPTIONS}
@@ -118,6 +120,7 @@ const GenderFilter = () => {
     };
     return (
         <Dropdown
+            className={styles.fourth}
             changeOption={changeCurrentGender}
             option={findLabel(genderValue, GENDER_OPTIONS)}
             options={GENDER_OPTIONS}

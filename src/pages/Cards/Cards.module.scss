@@ -3,13 +3,19 @@
     background-color: #b7cde3;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 0.5fr;
+    grid-template-columns: 70% 30%;
     gap: 20px;
-    
+
     &__wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 20px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .cards {
+        grid-template-columns: 60% 40%;
     }
 }

@@ -1,11 +1,12 @@
 import styles from "./Cards.module.scss";
 
-import { FiltersPanel } from "../../components/FiltersPanel/FiltersPanel";
-import { Sidebar } from "../../components/Sidebar/Sidebar";
-import { CardsList } from "../../components/CardsList/CardsList";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
+
+import { FiltersPanel } from "../../components/FiltersPanel/FiltersPanel";
+import { Sidebar } from "../../components/Sidebar/Sidebar";
+import { CardsList } from "../../components/CardsList/CardsList";
 import {
     fetchFirstData,
     fetchPersons,
@@ -55,7 +56,10 @@ export const Cards = () => {
         <div className={styles.cards}>
             <div className={styles.cards__wrapper}>
                 <FiltersPanel className={styles.panel} />
-                <CardsList className={styles.list} />
+                <CardsList
+                    className={styles.list}
+                    currentPerson={currentPerson}
+                />
                 <div ref={ref}></div>
             </div>
             {currentPerson && <Sidebar className={styles.sidebar} />}

@@ -23,10 +23,12 @@
         font-size: 25px;
         color: var(--secondary-color);
         font-weight: 500;
+        word-wrap: break-word;
     }
     &__value {
         font-size: 23px;
         color: var(--black);
         font-weight: 400;
+        word-wrap: break-word;
     }
 }

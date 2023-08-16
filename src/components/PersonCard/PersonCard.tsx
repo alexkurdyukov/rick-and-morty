@@ -1,11 +1,9 @@
 import styles from "./PersonCard.module.scss";
+import cn from "classnames";
+
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { changeSelectedPerson } from "../../store/reducers/CurrentPersonReducer";
 import { Person } from "../../types";
-
-interface PersonCardProps {
-    person: Person;
-}
 
 const genderValues: Record<string, string> = {
     Male: "Мужской",
@@ -33,11 +31,16 @@ const speciesValues: Record<string, string> = {
     Cronenberg: "Крокенберг",
 };
 
+interface PersonCardProps {
+    person: Person;
+}
+
 export const PersonCard = ({ person }: PersonCardProps) => {
     const dispatch = useAppDispatch();
     const changeSidebarPerson = (name: string) => {
         dispatch(changeSelectedPerson(name));
     };
+
     return (
         <div
             className={styles.card}

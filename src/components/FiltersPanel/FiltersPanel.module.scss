@@ -1,12 +1,42 @@
 .panel {
     display: grid;
+    align-items: center;
+    justify-content: space-between;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+        "input input input"
+        "status species gender";
     grid-column-gap: 10px;
     grid-row-gap: 10px;
+    width: 100%;
     gap: 10px;
 }
 
-.nameinput {
+.first {
+    grid-area: input;
     grid-area: 1 / 1 / 2 / 4;
+}
+
+.second {
+    grid-area: status;
+    width: 100%;
+}
+
+.third {
+    grid-area: species;
+    width: 100%;
+}
+
+.fourth {
+    grid-area: gender;
+    width: 100%;
+    
+}
+
+@media (max-width: 1200px) {
+    .panel {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

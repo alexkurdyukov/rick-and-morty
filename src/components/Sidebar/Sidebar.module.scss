@@ -1,20 +1,56 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
 
     position: relative;
-
     &__wrapper {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        background-color: var(--white);
+        justify-content: space-between;
+        gap: 30px;
 
-        width: 30vw;
+        width: 25vw;
+
         position: fixed;
-        padding: 30px 20px;
+
+        background-color: var(--white);
         border-radius: 17px;
+        overflow: hidden;
+    }
+    &__header {
+        padding: 40px 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 600;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: auto;
+        padding: 40px 20px;
+        height: 100%;
+    }
+    &__element {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    &__icon {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+        cursor: pointer;
+        &:hover {
+            background-color: red;
+        }
+    }
+    &__button {
+        transform: scale(2);
     }
 }

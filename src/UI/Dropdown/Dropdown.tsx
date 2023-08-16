@@ -3,10 +3,10 @@ import cn from "classnames";
 
 import { useRef, useState } from "react";
 
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DropdownOption } from "../../types";
 import { useClickOutside } from "../../hooks/useClickOutside";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const DEFAULT_DROPDOWN_TEXT = "Выберите значение";
 
@@ -15,7 +15,7 @@ interface DropdownProps {
     options: DropdownOption[];
     placeholder?: string;
     className?: string;
-    changeOption: (value: string) => void; // функция позволяющая связать дропдаун и стор
+    changeOption: (value: string) => void; 
     option: string;
 }
 
